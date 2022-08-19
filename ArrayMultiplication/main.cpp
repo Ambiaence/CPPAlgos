@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -7,21 +8,17 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 /*
- * Complete the 'getTotalX' function below.
+ * Complete the 'arrayManipulation' function below.
  *
- * The function is expected to return an INTEGER.
+ * The function is expected to return a LONG_INTEGER.
  * The function accepts following parameters:
- *  1. INTEGER_ARRAY a
- *  2. INTEGER_ARRAY b
+ *  1. INTEGER n
+ *  2. 2D_INTEGER_ARRAY queries
  */
 
-int getTotalX(vector<int> a, vector<int> b) {
-	vector<int> list
-	
-	//all of a's elements are a factor of this number
-	maxNumber = max(a)
-
-	for(auto iter = a.begin(); 
+long arrayManipulation(int n, vector<vector<int>> queries) {
+	vector<int> arr{vector<int>(n, 0)}; 
+	for(auto row = queries.begin(); row != queries.end(); row++)
 }
 
 int main()
@@ -37,35 +34,26 @@ int main()
 
     int m = stoi(first_multiple_input[1]);
 
-    string arr_temp_temp;
-    getline(cin, arr_temp_temp);
-
-    vector<string> arr_temp = split(rtrim(arr_temp_temp));
-
-    vector<int> arr(n);
-
-    for (int i = 0; i < n; i++) {
-        int arr_item = stoi(arr_temp[i]);
-
-        arr[i] = arr_item;
-    }
-
-    string brr_temp_temp;
-    getline(cin, brr_temp_temp);
-
-    vector<string> brr_temp = split(rtrim(brr_temp_temp));
-
-    vector<int> brr(m);
+    vector<vector<int>> queries(m);
 
     for (int i = 0; i < m; i++) {
-        int brr_item = stoi(brr_temp[i]);
+        queries[i].resize(3);
 
-        brr[i] = brr_item;
+        string queries_row_temp_temp;
+        getline(cin, queries_row_temp_temp);
+
+        vector<string> queries_row_temp = split(rtrim(queries_row_temp_temp));
+
+        for (int j = 0; j < 3; j++) {
+            int queries_row_item = stoi(queries_row_temp[j]);
+
+            queries[i][j] = queries_row_item;
+        }
     }
 
-    int total = getTotalX(arr, brr);
+    long result = arrayManipulation(n, queries);
 
-    fout << total << "\n";
+    fout << result << "\n";
 
     fout.close();
 

@@ -17,9 +17,9 @@ vector<string> split(const string &);
 
 vector<int> rotateLeft(int d, vector<int> arr) {
 	vector<int> nArr;
+
 	for(auto iter = arr.begin() + d; iter != arr.end(); iter++)
 		nArr.push_back(*iter);
-	
 	for(auto iter = arr.begin(); iter != arr.begin() + d; iter++)
 		nArr.push_back(*iter);
 	
