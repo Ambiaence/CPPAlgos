@@ -17,8 +17,17 @@ vector<string> split(const string &);
  */
 
 long arrayManipulation(int n, vector<vector<int>> queries) {
-	vector<int> arr{vector<int>(n, 0)}; 
-	for(auto row = queries.begin(); row != queries.end(); row++)
+	vector<long> arr{vector<long>(n, 0)}; 
+	for(auto row = queries.begin(), row != queries.end(), row++) {
+		for(int x = (*row[0]) - 1;x <= (*row)[1] - 1; x++) {
+			arr[x] = arr[x] + (*row)[2];
+		}
+	}
+	long max = arr[0];
+	for(auto iter = arr.begin() + 1; iter != arr.end(); iter++)
+		if(max < *iter) 
+			max = *iter;
+	return max;
 }
 
 int main()
