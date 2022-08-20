@@ -18,7 +18,7 @@ vector<string> split(const string &);
 
 long arrayManipulation(int n, vector<vector<int>> queries) {
 	vector<long> arr{vector<long>(n, 0)}; 
-	for(auto row = queries.begin(), row != queries.end(), row++) {
+	for(auto row = queries.begin(); row != queries.end(); row++) {
 		for(int x = (*row[0]) - 1;x <= (*row)[1] - 1; x++) {
 			arr[x] = arr[x] + (*row)[2];
 		}
