@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -25,6 +26,7 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
 
 	#define first (*sec)[0]
 	#define last (*sec)[1]
+	#define val (*sec)[2]
 
 	typedef vector<int> SECTION;
 	vector<SECTION> arr; 
@@ -37,35 +39,22 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
 		for(auto sec = arr.begin(); a > last; sec++) {
 			firstSec = sec;
 		}
-		for(auto sec = arr.end(); b < last ; sec-- {
+		for(auto sec = arr.begin(); b < first ; sec++) {
 			lastSec = sec;
 		}
 
-		int fa = (*firstSec)[0];
-		int fb = (*firstSec)[1];
-		int fk = (*firstSec)[2];
-
 		if(firstSec == lastSec) {
-			if(a == fa and b == fb) { //both are equal
-					(*firstSec)[2] = fk + k;
-			} else if(a != fa and b == fb) { // only b border {
-				firstSec = arr.insert(firstSec, {a, b, fk + k});//
-				firstSec = arr.insert(firstSec, {fa, a-1, fk});//
-				firstSec++; //erase old section now contigious with 
-				firstSec.erase();
-			} else if(a == fa and b != fb)//only a border {
-				firstSec = arr.insert(firstSec, {b+1, fb, fk);
-				firstSec = arr.insert(firstSec, {a, b, fk + k});
-				firstSec++; //erase old section now contigious with 
-				firstSec.erase();
-			} else { //neither border
-				firstSec = arr.insert(firstSec, {b+1, b, fk); //not changed
-				firstSec = arr.insert(firstSec, {a, b, fk + k});//Changed section
-				firstSec = arr.insert(firstSec, {a, a+1, fk}); //not changed
-				firstSec++; //erase old section now contigious with 
-				firstSec.erase();
+			if(a == (*firstSec)[0] and b == (*firstSec)) { //both are equal
+				(*firstSec[0])
+			} else if(a != (*firstSec)[0] and b == (*firstSec))// only b border {
+			} else if(a == (*firstSec)[0] and b != (*firstSec))//only a border {
+			} else { // neither border
 			}
-		} 
+		} if ((lastSec - firstSec) == 1) {
+
+		} else {
+
+		}
 	}
 	return -1;
 	#undef a 
