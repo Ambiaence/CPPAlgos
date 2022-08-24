@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -31,20 +32,19 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
     arr.push_back({1,n,0});
 
     for(auto row = queries.begin(); row != queries.end(); row++) {
-        for(auto sec = arr.begin(); sec != arr.end(); sec++) { //Find section that point a occupies
+		
+        for(auto sec = arr.begin(); sec != arr.end(); sec++) {
+			cout << a << ',' << last;
 			if(a <= last) {
+				cout << "Breaking" << 'n';
 				firstSec = sec;
 				break;
 			}
         }
 
-        for(auto sec = firstSec; sec != arr.end(); sec++) { //Find section that point b occupies
-			if(b <= last) {
-				firstSec = sec;
-				break;
-			}
+        for(auto sec = arr.end()-1; b < first; sec--){
+            lastSec = sec;
         }
-
 		
         int fa = (*firstSec)[0];
         int fb = (*firstSec)[1];
