@@ -22,55 +22,69 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
 
     #define first (*sec)[0]
     #define last (*sec)[1]
+    #define val (*sec)[2]
 
-    typedef vector<int> SECTION;
-    vector<vector<int>> arr; 
-    vector<vector<int>>::iterator firstSec;
-    vector<vector<int>>::iterator lastSec;
+    typedef list<int> SECTION;
+    list<vector<int>> arr; 
+    list<vector<int>>::iterator firstSec;
+    list<vector<int>>::iterator lastSec;
 
     arr.push_back({1,n,0});
 
     for(auto row = queries.begin(); row != queries.end(); row++) {
         for(auto sec = arr.begin(); sec != arr.end(); sec++) { //Find section that point a occupies
-			if(a <= last) {
+			if(a <= first) {
 				firstSec = sec;
 				break;
 			}
         }
 
         for(auto sec = firstSec; sec != arr.end(); sec++) { //Find section that point b occupies
-			if(b <= last) {
-				firstSec = sec;
+			if(b <= first) {
+				lastSec = sec;
 				break;
+				}
 			}
-        }
 
-		
-        int fa = (*firstSec)[0];
-        int fb = (*firstSec)[1];
-        int fk = (*firstSec)[2];
+			
 
-        if(firstSec == lastSec) {
-            if(a == fa and b == fb) { //both are equal
-                    (*firstSec)[2] = fk + k;
-            } else if(a != fa and b == fb) { // only b border {
-                firstSec = arr.insert(firstSec, {a, b, fk + k});//
-                firstSec = arr.insert(firstSec, {fa, a-1, fk});//
-                firstSec++; //erase old section now contigious with 
-                arr.erase(firstSec);
-            } else if(a == fa and b != fb)//only a border {
-                firstSec = arr.insert(firstSec, {b+1, fb, fk});
-                firstSec = arr.insert(firstSec, {a, b, fk + k});
-                firstSec++; //erase old section now contigious with 
-                arr.erase(firstSec);
-            } else { //neither border
-                firstSec = arr.insert(firstSec, {b+1, b, fk}); //not changed
-                firstSec = arr.insert(firstSec, {a, b, fk + k});//Changed section
-                firstSec = arr.insert(firstSec, {a, a+1, fk}); //not changed
-                firstSec++; //erase old section now contigious with 
-                arr.erase(firstSec);
-            }
-        }
+
+		////	bool isInside = false;
+		//	for (auto sec = firstSec; sec != lastSec+1; sec++) {
+		//		if(isInside) {
+		//			if( b >= last) { //Definately in a middle section or just at the end of the for loop(It will end regardless)
+		//				val = val + k;
+		//			} else if (b < last) { //B is on the inside
+		//				arr.insert(sec {first, b, val + k});
+		//				sec++;
+		//				first = b+1;							
+		//			}
+		//		} else {
+		//					
+		//		}
+		//	}
+
+        //if(firstSec == lastSec) {
+        //    if(a == fa and b == fb) { //both are equal
+        //            (*firstSec)[2] = fk + k;
+        //    } else if(a != fa and b == fb) { // only b border {
+        //        firstSec = arr.insert(firstSec, {a, b, fk + k});//
+        //        firstSec = arr.insert(firstSec, {fa, a-1, fk});//
+        //        firstSec++; //erase old section now contigious with 
+        //        arr.erase(firstSec);
+        //    } else if(a == fa and b != fb)//only a border {
+        //        firstSec = arr.insert(firstSec, {b+1, fb, fk});
+        //        firstSec = arr.insert(firstSec, {a, b, fk + k});
+        //        firstSec++; //erase old section now contigious with 
+        //        arr.erase(firstSec);
+        //    } else { //neither border
+        //        firstSec = arr.insert(firstSec, {b+1, b, fk}); //not changed
+        //        firstSec = arr.insert(firstSec, {a, b, fk + k});//Changed section
+        //        firstSec = arr.insert(firstSec, {a, a+1, fk}); //not changed
+        //        firstSec++; //erase old section now contigious with 
+        //        arr.erase(firstSec);
+        //    }
+        //}
     return -1;
     #undef a 
     #undef b 
