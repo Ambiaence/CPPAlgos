@@ -26,6 +26,7 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
 
     typedef list<int> SECTION;
     list<vector<int>> arr; 
+    list<vector<int>> insertedList; 
     list<vector<int>>::iterator firstSec;
     list<vector<int>>::iterator lastSec;
 
@@ -45,7 +46,10 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
 				break;
 				}
 			}
-
+		
+		for(auto sec = firstSec; sec != lastSec) {
+			
+		}
 			
 
 

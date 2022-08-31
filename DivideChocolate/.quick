@@ -1,0 +1,9 @@
+#!/bin/bash
+clear
+g++ main.cpp
+if [ $? -eq 0 ]; then
+	echo test
+	./a.out < input.txt
+else
+   echo FAIL
+fi

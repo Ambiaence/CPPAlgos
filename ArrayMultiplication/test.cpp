@@ -3,35 +3,33 @@
 #include <iterator>
 #include <vector>
 
-void printVec(std::vector<int> arr) {
-	for(auto iter = arr.begin(); iter != arr.end(); iter++) {
-		std::cout << *iter << ' ';
-	} 
-	std::cout << '\n';
-}
-
 int main() {
-	std::vector<int> arr;
-	std::vector<int>::iterator far;
-	std::vector<int>::iterator close;
+	std::list<int> arr;
+	std::list<int> ins;
+	int c = 0;
 	
-	for(int i = 0; i < 10; i++) {
-		arr.push_back(i);		
-	}
+	for(int i = 0; i < 10; i++)
+		arr.push_back(c++);
 	
-	printVec(arr);
+	for(auto iter = arr.begin(); iter!= arr.end(); iter++) 
+		std::cout << *iter << " ";
+	std::cout << '\n';
 
-	far = arr.begin() + 8;
-	close = arr.begin() + 0;
+	for(int i = -10; i < -4; i++)
+		ins.push_back(i);
 
-	std::cout << *far << '\n';
-	std::cout << *close << '\n';
+	for(auto iter = ins.begin(); iter!= ins.end(); iter++) 
+		std::cout << *iter << " ";
+	std::cout << '\n';
 
-	std::cout << "Inserting at b+3\n";
-	arr.insert(far, -9);
-	arr.erase(far);
+	for(auto iter = arr.begin(); iter!= arr.end(); iter++) 
+		std::cout << *iter << " ";
+	std::cout << '\n';
 
-	printVec(arr);
-	std::cout << *far << '\n';
-	std::cout << *close << '\n';
+	
+
+
+
+	
+
 }
