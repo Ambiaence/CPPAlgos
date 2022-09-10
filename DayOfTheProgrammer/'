@@ -11,14 +11,6 @@ Marie invented a Time Machine and wants to test it by time-traveling to visit Ru
 From 1700 to 1917, Russia's official calendar was the Julian calendar; since 1919 they used the Gregorian calendar system. The transition from the Julian to Gregorian calendar system occurred in 1918, when the next day after January 31st was February 14th. This means that in 1918, February 14th was the 32nd day of the year in Russia.
 
 January: 31st -> Feb 14th on 1918
-//Feb 14th 32
-//Feb 28th 46
-31
-30
-31
-30
-31
-31
 
 
 In both calendar systems, February is the only month with a variable amount of days; it has 29 days during a leap year, and 28 days during all other years. In the Julian calendar, leap years are divisible by 4; in the Gregorian calendar, leap years are either of the following:
@@ -38,21 +30,22 @@ Given a year,
 string dayOfProgrammer(int year) {
 	string str = "";
 	if (year < 1918) {	 //Before 
-		if (year%4 == 0) { //Is a leap
+		if (year%4 == 0) {
 			str = str + "12.09." + to_string(year);
 		} else {
 			str = str + "13.09." + to_string(year);
 		}
 	} else if ( year > 1918 ) { //After 
 		if(year%400 == 0) {
-			str = str + "12.09." + to_string(year);
-		} else if(year%4 == 0 and year%100 != 0) { //is a leap
-			str = str + "12.09." + to_string(year);
+						
+		} else if(year%4 == 0 and year%100 != 0) {
+				
 		} else { //Not leap year
-			str = str + "13.09." + to_string(year);
 		}
+
+
+				
 	} else {  //On
-		str = str + "26.09." + to_string(year);
 	}
 	cout << str << "\n";
 	return str;
