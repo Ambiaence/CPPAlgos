@@ -88,7 +88,6 @@ SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* list, int data,
   SinglyLinkedListNode* temp = new SinglyLinkedListNode(data);
   temp->next = list->next;
   list->next = temp;
-  free(temp)
   return head;
 }
 
