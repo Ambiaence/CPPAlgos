@@ -1,0 +1,3 @@
+bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+	while(head1 != nullptr && head2 != nullptr
+}
